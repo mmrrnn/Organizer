@@ -1,61 +1,51 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { createProject } from '../../store/actions/projectActions';
 import { Redirect } from 'react-router-dom';
+import { createProject } from '../../store/actions/projectActions';
 
-class CreateProject extends Component {
-    state = {
-        title: '',
-        content: ''
-    }
+const CreateProject = ({ auth, createProject, history }) => {
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
 
-    handleChange = e => {
-        this.setState({
-            [e.target.id]: e.target.value
-        })
-    }
-    
-    handleSubmit = e => {
+    const handleSubmit = e => {
         e.preventDefault();
-        this.props.createProject(this.state);
-        this.props.history.push('/');
-    } 
-    
-    render() {
-        const { auth } = this.props;
-        if(!auth.uid)return <Redirect to='/signin' />
 
-        return (
-            <div className="container">
-                <form className="white" onSubmit={this.handleSubmit}>
-                    <h5 className="grey-text text-darken-3">Create New Project</h5>
-                    <div className="input-field">
-                        <label htmlFor="title">Title</label>
-                        <input type="text" id="title" required onChange={this.handleChange} />
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="content">Project Content</label>
-                        <textarea id="content" required className="materialize-textarea" onChange={this.handleChange}></textarea>
-                    </div>
-                    <div className="input-field">
-                        <button className="btn purple lighten-1 z-depth-0">Create</button>
-                    </div>
-                </form>
-            </div>
-        )
+        createProject({
+            title,
+            content
+        });
+
+        history.push('/');
     }
+
+    if (!auth.uid) return <Redirect to='/signin' />
+
+    return (
+        <div className="container">
+            <form className="white" onSubmit={handleSubmit}>
+                <h5 className="grey-text text-darken-3">Create New Project</h5>
+                <div className="input-field">
+                    <label htmlFor="title">Title</label>
+                    <input type="text" id="title" required onChange={e => setTitle(e.target.value)} />
+                </div>
+                <div className="input-field">
+                    <label htmlFor="content">Project Content</label>
+                    <textarea id="content" required className="materialize-textarea" onChange={e => setContent(e.target.value)}></textarea>
+                </div>
+                <div className="input-field">
+                    <button className="btn purple lighten-1 z-depth-0">Create</button>
+                </div>
+            </form>
+        </div>
+    )
 }
 
-const mapStateToProps = state => {
-    return {
-        auth: state.firebase.auth
-    }
-}
+const mapStateToProps = state => ({
+    auth: state.firebase.auth
+})
 
-const mapDispatchToProps = dispatch => {
-    return {
-        createProject: project => dispatch(createProject(project))
-    }
-}
+const mapDispatchToProps = dispatch => ({
+    createProject: project => dispatch(createProject(project))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateProject);
