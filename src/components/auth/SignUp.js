@@ -23,7 +23,7 @@ const SignUp = ({ auth, authError, signUp }) => {
 
     return (
         <div className="container">
-            <form className="white" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <h5 className="grey-text text-darken-3">Sign Up</h5>
                 <div className="input-field">
                     <label htmlFor="email">Email</label>
@@ -42,7 +42,7 @@ const SignUp = ({ auth, authError, signUp }) => {
                     <input type="text" id="lastName" onChange={e => setLastName(e.target.value)} />
                 </div>
                 <div className="input-field">
-                    <button className="btn purple lighten-1 z-depth-0">Sign Up</button>
+                    <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
                     <div className="red-text center">
                         {authError ? <p>{authError}</p> : null}
                     </div>

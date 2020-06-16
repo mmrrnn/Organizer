@@ -9,7 +9,7 @@ const SignedInLinks = ({ profile, signOut }) => {
             <li><NavLink to="/">HOME</NavLink></li>
             <li><NavLink to="/create">NEW PROJECT</NavLink></li>
             <li><a onClick={signOut}>LOG OUT</a></li>
-            <li><NavLink to="/" className="btn btn-floating yellow purple-text">{profile.initials}</NavLink></li>
+            <li id="initials"><NavLink to="/" className="btn btn-floating white-text">{profile.initials}</NavLink></li>
         </ul>
     );
 }

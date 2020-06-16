@@ -22,7 +22,7 @@ const CreateProject = ({ auth, createProject, history }) => {
 
     return (
         <div className="container">
-            <form className="white" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <h5 className="grey-text text-darken-3">Create New Project</h5>
                 <div className="input-field">
                     <label htmlFor="title">Title</label>
@@ -33,7 +33,7 @@ const CreateProject = ({ auth, createProject, history }) => {
                     <textarea id="content" required className="materialize-textarea" onChange={e => setContent(e.target.value)}></textarea>
                 </div>
                 <div className="input-field">
-                    <button className="btn purple lighten-1 z-depth-0">Create</button>
+                    <button className="btn pink lighten-1 z-depth-0">Create</button>
                 </div>
             </form>
         </div>

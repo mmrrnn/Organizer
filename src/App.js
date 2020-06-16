@@ -11,7 +11,6 @@ import UpdateProject from './components/projects/UpdateProject';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
         <Navbar />
         <div id="page">
           <Switch>
@@ -23,7 +22,6 @@ function App() {
             <Route path="/create" component={CreateProject} />
           </Switch>
         </div>
-      </div>
     </BrowserRouter>
   );
 }

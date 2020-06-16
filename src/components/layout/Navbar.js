@@ -8,7 +8,7 @@ function Navbar({ auth, profile }) {
     
     return (
         <nav>
-            <div className="nav-wrapper purple">
+            <div className="nav-wrapper white">
                 { links }
             </div>
         </nav>

@@ -22,7 +22,7 @@ const UpdateProject = ({ history, location, updateProject }) => {
     if (project) {
         return (
             <div className="container">
-                <form className="white" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <h5 className="grey-text text-darken-3">Update Project</h5>
                     <div className="input-field">
                         <label htmlFor="title" className="active">Title</label>
@@ -33,7 +33,7 @@ const UpdateProject = ({ history, location, updateProject }) => {
                         <textarea id="content" className="materialize-textarea" onChange={e => setContent(e.target.value)} defaultValue={content}></textarea>
                     </div>
                     <div className="input-field">
-                        <button className="btn purple lighten-1 z-depth-0">Update</button>
+                        <button className="btn pink lighten-1 z-depth-0">Update</button>
                     </div>
                 </form>
             </div>

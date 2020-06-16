@@ -32,7 +32,7 @@ const ProjectDetails = ({ id, project, auth, deleteProject, history }) => {
                             auth
                         }
                     }}>
-                        {isOwner && (<span className="btn-floating project-button right waves-effect waves-light purple">
+                        {isOwner && (<span className="btn-floating project-button right waves-effect waves-light green">
                             <i className="material-icons">edit</i>
                         </span>)}
                     </Link>
